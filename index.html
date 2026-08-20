@@ -22,7 +22,6 @@
 
     <nav class="tabs" aria-label="主导航">
       <button type="button" data-tab="about" class="active">关于</button>
-      <button type="button" data-tab="experience">经历</button>
       <button type="button" data-tab="projects">项目</button>
       <button type="button" data-tab="honors">奖项</button>
     </nav>
@@ -31,11 +30,66 @@
       <section class="block">
         <h2>关于我</h2>
         <p class="prose lede">
-          一直在做医疗与数据交叉方向的工作。过去几年主要在数字医疗、用户画像、数据仓库和算法工程这些领域，把机器学习、强化学习、运筹优化等方法真正用到医院和企业场景里。
+          过去几年一直在做医疗和数据交叉方向的工作，主要把机器学习、强化学习、运筹优化等方法真正用到医院、药企和企业生产场景里。
         </p>
         <p class="prose">
-          工作内容通常覆盖一整条线：从科研申报、算法研发、工程落地，到项目交付和团队管理。算法上常用 Python、SQL、Spark、Hive、Redis、Linux，也做过大模型相关的 RAG 与 LangChain 应用。
+          工作内容通常覆盖一整条线：从科研申报、算法研发、工程落地，到项目交付和团队管理。常用 Python、SQL、Spark、Hive、Redis、Linux，也做过大模型相关的 RAG 与 LangChain 应用。
         </p>
+      </section>
+
+      <section class="block">
+        <h2>工作经历</h2>
+        <ul class="timeline">
+          <li>
+            <div class="job-head">
+              <div class="job-title">
+                <span class="org-logo"><img src="logos/nice.png" alt="长三角国家技术创新中心"></span>
+                <h3>长三角国家技术创新中心数字医疗技术研究所（NICE-DM）</h3>
+              </div>
+              <span class="when">2023.07 – 2026.06</span>
+            </div>
+            <div class="job-org">数字智药部 · 技术总监 / 高级工程师 · 上海</div>
+            <ul class="plain">
+              <li>做脓毒症治疗辅助决策（Deep Q-learning）、医疗资源调度（混合整数优化）、制药过程风险预警（PCA、GANs）、用药剂量预测（XGBoost、LSTM）、医疗智能体（RAG、LangChain）等项目，多个项目在三甲医院转化落地。</li>
+              <li>撰写 10 余项省部级 AI 医疗项目申请书，多项获批立项。</li>
+              <li>主管 3 名全职算法工程师，指导 8 名国内外高校 Co-op 实习生。</li>
+              <li>申请 6 项发明专利（已公开），行业竞赛获奖 6 次。</li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="job-head">
+              <div class="job-title">
+                <span class="org-logo"><img src="logos/hypers.svg" alt="上海嗨普智能 Hypers"></span>
+                <h3>上海嗨普智能（Hypers）</h3>
+              </div>
+              <span class="when">2021.05 – 2023.07</span>
+            </div>
+            <div class="job-org">研发中心 · 数据科学工程师 · 上海</div>
+            <ul class="plain">
+              <li>负责用户画像离线计算、基于马尔可夫链模型的用户行为归因算法等核心功能。</li>
+              <li>基于 Spark 做分布式机器学习性能调优，建设 PB 级数据仓库并优化查询性能。</li>
+              <li>技术栈：Spark ML、HBase、数据湖、RabbitMQ、Linux 与 Shell 脚本。</li>
+              <li>校企合作项目获上海市科技进步一等奖（导师获奖）；2022 CCF 大数据与计算智能大赛全国二等奖。</li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="job-head">
+              <div class="job-title">
+                <span class="org-logo"><img src="logos/csu.png" alt="中南大学"></span>
+                <h3>中南大学资源加工与生物工程学院</h3>
+              </div>
+              <span class="when">2020.06 – 2021.05</span>
+            </div>
+            <div class="job-org">张毅教授课题组 · 科研助理 · 长沙</div>
+            <ul class="plain">
+              <li>完成实验室数据采集、清洗与存储工作。</li>
+              <li>运用 R 语言处理糖尿病相关基因组学数据，包括差异基因筛选、富集分析、NMF 生成元基因与预后模型。</li>
+              <li>制作专业科研图表，搭建课题组 Wiki 知识库并整理实验室文档。</li>
+            </ul>
+          </li>
+        </ul>
       </section>
 
       <section class="block">
@@ -52,76 +106,14 @@
             <li>核心课程：分布式计算系统 98、数据中台 95、统计与机器学习 93、数据管理与分析 91。</li>
           </ul>
         </div>
-
-        <div class="edu">
-          <div class="job-head">
-            <h3>华北水利水电大学 · 交通学院</h3>
-            <span class="when">2015.09 – 2020.06</span>
-          </div>
-          <div class="job-org">道路桥梁与渡河工程 · 本科</div>
-          <ul class="plain">
-            <li>高等数学 94、高级语言程序设计（C 语言）88、概率统计 85。</li>
-          </ul>
-        </div>
       </section>
 
       <section class="block">
         <h2>一些数字</h2>
         <div class="skills">
-          <p><b>10+</b> 项省部级 AI 医疗项目申请书</p>
-          <p><b>6</b> 项已公开发明专利</p>
-          <p><b>6</b> 次行业竞赛获奖</p>
-          <p><b>3 人</b> 全职算法工程师团队</p>
-          <p><b>8 人</b> 国内外高校 Co-op 实习生</p>
+          <p><b>10+</b> 项省部级 AI 医疗项目申请书 · <b>6</b> 项已公开发明专利 · <b>6</b> 次行业竞赛获奖</p>
+          <p>带过 <b>3 人</b> 全职算法工程师团队和 <b>8 人</b> 国内外高校 Co-op 实习生</p>
         </div>
-      </section>
-    </section>
-
-    <section id="panel-experience" class="panel">
-      <section class="block">
-        <h2>工作经历</h2>
-        <ul class="timeline">
-          <li>
-            <div class="job-head">
-              <h3>长三角国家技术创新中心数字医疗技术研究所（NICE-DM）</h3>
-              <span class="when">2023.07 – 2026.06</span>
-            </div>
-            <div class="job-org">数字智药部 · 技术总监 / 高级工程师 · 上海</div>
-            <ul class="plain">
-              <li>做脓毒症治疗辅助决策（Deep Q-learning）、医疗资源调度（混合整数优化）、制药过程风险预警（PCA、GANs）、用药剂量预测（XGBoost、LSTM）、医疗智能体（RAG、LangChain）等项目，多个项目在三甲医院转化落地。</li>
-              <li>撰写 10 余项省部级 AI 医疗项目申请书，多项获批立项。</li>
-              <li>主管 3 名全职算法工程师，指导 8 名国内外高校 Co-op 实习生。</li>
-              <li>申请 6 项发明专利（已公开），行业竞赛获奖 6 次。</li>
-            </ul>
-          </li>
-
-          <li>
-            <div class="job-head">
-              <h3>上海嗨普智能（Hypers）</h3>
-              <span class="when">2021.05 – 2023.07</span>
-            </div>
-            <div class="job-org">研发中心 · 数据科学工程师 · 上海</div>
-            <ul class="plain">
-              <li>负责用户画像离线计算、基于马尔可夫链模型的用户行为归因算法等核心功能。</li>
-              <li>基于 Spark 做分布式机器学习性能调优，建设 PB 级数据仓库并优化查询性能。</li>
-              <li>技术栈：Spark ML、HBase、数据湖、RabbitMQ、Linux 与 Shell 脚本。</li>
-              <li>校企合作项目获上海市科技进步一等奖（导师获奖）；2022 CCF 大数据与计算智能大赛全国二等奖。</li>
-            </ul>
-          </li>
-
-          <li>
-            <div class="job-head">
-              <h3>中南大学资源加工与生物工程学院</h3>
-              <span class="when">2020.06 – 2021.05</span>
-            </div>
-            <div class="job-org">张毅教授课题组 · 科研助理 · 长沙</div>
-            <ul class="plain">
-              <li>完成实验室数据采集、清洗与存储工作。</li>
-              <li>运用 R 语言处理糖尿病相关基因组学数据，包括差异基因筛选、富集分析、NMF 生成元基因与预后模型。</li>
-              <li>制作专业科研图表，搭建课题组 Wiki 知识库并整理实验室文档。</li>
-            </ul>
-          </li>
-        </ul>
       </section>
     </section>
 
