@@ -1,12 +1,23 @@
 # 汤振东 GitHub 主页
 
-静态个人主页，已按 GitHub Pages 根域名 `ZhendongTang.github.io` 部署。
+基于开源模板 [vCard - Personal Portfolio](https://github.com/codewithsadee/vcard-personal-portfolio)（MIT License）重新设计的个人主页，可直接部署到 GitHub Pages 根域名 `ZhendongTang.github.io`。
+
+## 功能
+
+- 关于 / 履历 / 项目 / 奖项 / 联系五个主视图，支持 URL 深链。
+- 项目卡片支持筛选，点击后弹出完整背景、做法、结果与关键指标。
+- 荣誉奖项采用左右联动布局，点击左侧奖项后右侧直接展示详情与相关链接。
+- 响应式深色侧边栏布局，移动端可折叠联系方式。
+- 适配中文系统字体，并保留基础 SEO 与分享元数据。
 
 ## 文件
 
-- `index.html`：主页入口
-- `style.css`：纸张质感、响应式排版
-- `app.js`：项目数据与选项卡交互
+- `index.html`：主页结构
+- `assets/css/style.css`：模板样式 + 中文定制样式
+- `assets/js/projects.js`：项目数据
+- `assets/js/script.js`：导航、筛选、项目弹窗与交互
+- `logos/`：机构 Logo
+- `TEMPLATE-LICENSE`：上游模板 MIT 许可证
 
 ## 本地预览
 
@@ -24,7 +35,7 @@ python -m http.server 8080
 
 ```bash
 git add .
-git commit -m "update homepage"
+git commit -m "redesign homepage"
 git push origin main
 ```
 

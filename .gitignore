@@ -1,1 +1,5 @@
 .vercel
+
+# 本地预览/开发产物，不随主页部署
+honors_preview.html
+honors_preview.png

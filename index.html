@@ -1,146 +1,413 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>汤振东 · 数字医疗算法与数据科学</title>
   <meta name="description" content="汤振东的个人主页：数字医疗、机器学习、强化学习与医疗数据工程。">
-  <link rel="stylesheet" href="style.css">
+  <meta name="theme-color" content="#111111">
+  <link rel="canonical" href="https://zhendongtang.github.io/">
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="汤振东 · 个人主页">
+  <meta property="og:title" content="汤振东 · 数字医疗算法与数据科学">
+  <meta property="og:description" content="数字医疗、机器学习、强化学习与医疗数据工程。">
+  <meta property="og:url" content="https://zhendongtang.github.io/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="汤振东 · 数字医疗算法与数据科学">
+  <meta name="twitter:description" content="数字医疗、机器学习、强化学习与医疗数据工程。">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "汤振东",
+    "givenName": "振东",
+    "familyName": "汤",
+    "alternateName": "Tang Zhendong",
+    "url": "https://zhendongtang.github.io/",
+    "email": "mailto:tangzd.onee@gmail.com",
+    "contactPoint": [
+      { "@type": "ContactPoint", "contactType": "personal email", "email": "mailto:tangzd.onee@gmail.com" },
+      { "@type": "ContactPoint", "contactType": "school email", "email": "mailto:71215903017@stu.ecnu.edu.cn" }
+    ],
+    "homeLocation": { "@type": "Place", "name": "上海" },
+    "jobTitle": "技术总监 / 高级工程师",
+    "knowsAbout": ["数字医疗", "机器学习", "强化学习", "数据科学", "医疗数据工程"],
+    "sameAs": ["https://github.com/ZhendongTang"]
+  }
+  </script>
 </head>
+
 <body>
-  <div class="page">
-    <header class="site">
-      <div class="meta-top">TANG ZHENDONG · SHANGHAI</div>
-      <h1>汤振东</h1>
-      <p class="subtitle">数字医疗 / 算法建模与数据科学</p>
-      <div class="contact-line">
-        <span><a href="mailto:tzd_onee@foxmail.com">tzd_onee@foxmail.com</a></span>
-        <span><a href="tel:+8619121832756">191 2183 2756</a></span>
-        <span>上海</span>
+  <main>
+    <aside class="sidebar" data-sidebar>
+      <div class="sidebar-info">
+        <figure class="avatar-box">
+          <img src="./assets/images/avatar-pikachu.svg" alt="皮卡丘头像" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="汤振东">汤振东</h1>
+          <p class="title">数字医疗 · 算法建模与数据科学</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>显示联系方式</span>
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
       </div>
-    </header>
 
-    <nav class="tabs" aria-label="主导航">
-      <button type="button" data-tab="about" class="active">关于</button>
-      <button type="button" data-tab="projects">项目</button>
-      <button type="button" data-tab="honors">奖项</button>
-    </nav>
+      <div class="sidebar-info_more">
+        <div class="separator"></div>
 
-    <section id="panel-about" class="panel active">
-      <section class="block">
-        <h2>关于我</h2>
-        <p class="prose lede">
-          过去几年一直在做医疗和数据交叉方向的工作，主要把机器学习、强化学习、运筹优化等方法真正用到医院、药企和企业生产场景里。
-        </p>
-        <p class="prose">
-          工作内容通常覆盖一整条线：从科研申报、算法研发、工程落地，到项目交付和团队管理。常用 Python、SQL、Spark、Hive、Redis、Linux，也做过大模型相关的 RAG 与 LangChain 应用。
-        </p>
-      </section>
-
-      <section class="block">
-        <h2>工作经历</h2>
-        <ul class="timeline">
-          <li>
-            <div class="job-head">
-              <div class="job-title">
-                <span class="org-logo"><img src="logos/nice.png" alt="长三角国家技术创新中心"></span>
-                <h3>长三角国家技术创新中心数字医疗技术研究所（NICE-DM）</h3>
-              </div>
-              <span class="when">2023.07 – 2026.06</span>
+        <ul class="contacts-list">
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
             </div>
-            <div class="job-org">数字智药部 · 技术总监 / 高级工程师 · 上海</div>
-            <ul class="plain">
-              <li>做脓毒症治疗辅助决策（Deep Q-learning）、医疗资源调度（混合整数优化）、制药过程风险预警（PCA、GANs）、用药剂量预测（XGBoost、LSTM）、医疗智能体（RAG、LangChain）等项目，多个项目在三甲医院转化落地。</li>
-              <li>撰写 10 余项省部级 AI 医疗项目申请书，多项获批立项。</li>
-              <li>主管 3 名全职算法工程师，指导 8 名国内外高校 Co-op 实习生。</li>
-              <li>申请 6 项发明专利（已公开），行业竞赛获奖 6 次。</li>
-            </ul>
+            <div class="contact-info">
+              <p class="contact-title">邮箱</p>
+              <div class="contact-emails">
+                <a href="mailto:tangzd.onee@gmail.com" class="contact-link">tangzd.onee@gmail.com</a>
+                <a href="mailto:71215903017@stu.ecnu.edu.cn" class="contact-link">71215903017@stu.ecnu.edu.cn</a>
+              </div>
+            </div>
           </li>
 
-          <li>
-            <div class="job-head">
-              <div class="job-title">
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">地点</p>
+              <address>中国 · 上海</address>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="logo-github"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">GitHub</p>
+              <a href="https://github.com/ZhendongTang" class="contact-link" rel="me">ZhendongTang</a>
+            </div>
+          </li>
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+          <li class="social-item">
+            <a href="https://github.com/ZhendongTang" class="social-link" aria-label="GitHub" rel="me">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="mailto:tangzd.onee@gmail.com" class="social-link" aria-label="邮件">
+              <ion-icon name="mail-outline"></ion-icon>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <div class="main-content">
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <button class="navbar-link active" data-nav-link data-target="about">关于</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link data-target="resume">履历</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link data-target="portfolio">项目</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link data-target="honors">奖项</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link data-target="contact">联系</button>
+          </li>
+        </ul>
+      </nav>
+
+      <article class="about active" data-page="about">
+        <header>
+          <h2 class="h2 article-title">关于我</h2>
+        </header>
+
+        <section class="about-text">
+          <p>过去几年一直在做医疗和数据交叉方向的工作，主要把机器学习、强化学习、运筹优化等方法真正用到医院、药企和企业生产场景里。</p>
+          <p>工作内容通常覆盖一整条线：从科研申报、算法研发、工程落地，到项目交付和团队管理。常用 Python、SQL、Spark、Hive、Redis、Linux，也做过大模型相关的 RAG 与 LangChain 应用。</p>
+        </section>
+
+        <section class="service">
+          <h3 class="h3 service-title">核心方向</h3>
+
+          <ul class="service-list">
+            <li class="service-item">
+              <div class="service-icon-box">
+                <ion-icon name="medkit-outline"></ion-icon>
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">数字医疗 AI</h4>
+                <p class="service-item-text">辅助诊断、生存预测、重症决策、急诊分诊与医学大模型应用。</p>
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-icon-box">
+                <ion-icon name="git-network-outline"></ion-icon>
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">机器学习与强化学习</h4>
+                <p class="service-item-text">XGBoost、LSTM、DQN、行为克隆与可解释模型落地。</p>
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-icon-box">
+                <ion-icon name="server-outline"></ion-icon>
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">数据工程</h4>
+                <p class="service-item-text">PB 级数据仓库、Spark 调优、用户画像与离线计算。</p>
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-icon-box">
+                <ion-icon name="documents-outline"></ion-icon>
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">科研申报与团队管理</h4>
+                <p class="service-item-text">10+ 项省部级 AI 医疗项目申请，3 人全职团队与 8 人实习生管理。</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section class="about-text">
+          <div class="project-metrics" aria-label="关键数字">
+            <span class="metric"><b>10+</b> 省部级项目申请书</span>
+            <span class="metric"><b>6</b> 已公开发明专利</span>
+            <span class="metric"><b>6</b> 次行业竞赛获奖</span>
+          </div>
+        </section>
+      </article>
+
+      <article class="resume" data-page="resume">
+        <header>
+          <h2 class="h2 article-title">履历</h2>
+        </header>
+
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="briefcase-outline"></ion-icon>
+            </div>
+            <h3 class="h3">工作经历</h3>
+          </div>
+
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title org-title">
+                <span class="org-logo"><img src="logos/nice.png" alt="长三角国家技术创新中心数字医疗技术研究所"></span>
+                长三角国家技术创新中心数字医疗技术研究所（NICE-DM）
+              </h4>
+              <span>2023.07 – 2026.06</span>
+              <p class="job-org">数字智药部 · 技术总监 / 高级工程师 · 上海</p>
+              <ul class="job-bullets">
+                <li>负责脓毒症治疗辅助决策、医疗资源调度、制药过程风险预警、用药剂量预测与医疗智能体等项目的研发与落地。</li>
+                <li>撰写 10 余项省部级 AI 医疗项目申请书，多项获批立项。</li>
+                <li>主管 3 名全职算法工程师，指导 8 名国内外高校 Co-op 实习生。</li>
+                <li>申请 6 项发明专利（已公开），行业竞赛获奖 6 次。</li>
+              </ul>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title org-title">
                 <span class="org-logo"><img src="logos/hypers.svg" alt="上海嗨普智能 Hypers"></span>
-                <h3>上海嗨普智能（Hypers）</h3>
-              </div>
-              <span class="when">2021.05 – 2023.07</span>
-            </div>
-            <div class="job-org">研发中心 · 数据科学工程师 · 上海</div>
-            <ul class="plain">
-              <li>负责用户画像离线计算、基于马尔可夫链模型的用户行为归因算法等核心功能。</li>
-              <li>基于 Spark 做分布式机器学习性能调优，建设 PB 级数据仓库并优化查询性能。</li>
-              <li>技术栈：Spark ML、HBase、数据湖、RabbitMQ、Linux 与 Shell 脚本。</li>
-              <li>校企合作项目获上海市科技进步一等奖（导师获奖）；2022 CCF 大数据与计算智能大赛全国二等奖。</li>
-            </ul>
-          </li>
+                上海嗨普智能（Hypers）
+              </h4>
+              <span>2021.05 – 2023.07</span>
+              <p class="job-org">研发中心 · 数据科学工程师 · 上海</p>
+              <ul class="job-bullets">
+                <li>负责用户画像离线计算、基于马尔可夫链模型的用户行为归因算法等核心功能。</li>
+                <li>基于 Spark 做分布式机器学习性能调优，建设 PB 级数据仓库并优化查询性能。</li>
+                <li>校企合作项目获上海市科技进步一等奖（导师获奖），CCF 大数据与计算智能大赛全国二等奖。</li>
+              </ul>
+            </li>
 
-          <li>
-            <div class="job-head">
-              <div class="job-title">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title org-title">
                 <span class="org-logo"><img src="logos/csu.png" alt="中南大学"></span>
-                <h3>中南大学资源加工与生物工程学院</h3>
-              </div>
-              <span class="when">2020.06 – 2021.05</span>
+                中南大学资源加工与生物工程学院
+              </h4>
+              <span>2020.06 – 2021.05</span>
+              <p class="job-org">张毅教授课题组 · 科研助理 · 长沙</p>
+              <ul class="job-bullets">
+                <li>完成实验室数据采集、清洗与存储工作。</li>
+                <li>运用 R 语言处理糖尿病相关基因组学数据，构建差异基因筛选、富集分析与预后模型。</li>
+              </ul>
+            </li>
+          </ol>
+        </section>
+
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="ribbon-outline"></ion-icon>
             </div>
-            <div class="job-org">张毅教授课题组 · 科研助理 · 长沙</div>
-            <ul class="plain">
-              <li>完成实验室数据采集、清洗与存储工作。</li>
-              <li>运用 R 语言处理糖尿病相关基因组学数据，包括差异基因筛选、富集分析、NMF 生成元基因与预后模型。</li>
-              <li>制作专业科研图表，搭建课题组 Wiki 知识库并整理实验室文档。</li>
-            </ul>
-          </li>
-        </ul>
-      </section>
+            <h3 class="h3">职业资格</h3>
+          </div>
 
-      <section class="block">
-        <h2>一些数字</h2>
-        <div class="skills">
-          <p><b>10+</b> 项省部级 AI 医疗项目申请书 · <b>6</b> 项已公开发明专利 · <b>6</b> 次行业竞赛获奖</p>
-          <p>带过 <b>3 人</b> 全职算法工程师团队和 <b>8 人</b> 国内外高校 Co-op 实习生</p>
-        </div>
-      </section>
-    </section>
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">系统分析师</h4>
+              <span>计算机技术与软件专业技术资格 · 高级</span>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">数据库系统工程师</h4>
+              <span>计算机技术与软件专业技术资格 · 中级</span>
+            </li>
+          </ol>
+        </section>
 
-    <section id="panel-projects" class="panel">
-      <section class="block">
-        <h2>项目经历</h2>
-        <p class="prose muted">每个项目都有单独的介绍页签，点击左侧项目名查看背景、做法和结果。</p>
-        <div class="project-wrap">
-          <ul id="project-nav" class="project-nav" aria-label="项目列表"></ul>
-          <div id="project-detail" class="project-detail"></div>
-        </div>
-      </section>
-    </section>
+        <section class="skill">
+          <h3 class="h3 skills-title">技能栈</h3>
 
-    <section id="panel-honors" class="panel">
-      <section class="block">
-        <h2>荣誉奖项</h2>
-        <ul class="timeline honors">
-          <li>2026 年第九届数字中国创新大赛（DCIC）数字健康赛道，一等奖（八部委）【1/5】</li>
-          <li>2025 年西门子 Xcelerator 公开赛，全国三等奖 + 行业突破奖【4/7】</li>
-          <li>2024 年上海市优秀毕业生</li>
-          <li>2024 年“数据要素 ×”大赛广东分赛医疗健康赛道，优秀奖</li>
-          <li>2024 年长三角国家技术创新中心数据要素应用大赛职工创新项目赛道，一等奖【1/1】</li>
-          <li>2024 年第三届数智港航数据创新应用大赛算法模型赛道，优秀奖【2/3】</li>
-          <li>2023 年第二届中国大数据大赛卫生健康大数据创新应用赛道，全国一等奖（工信部）【5/5】</li>
-          <li>2023 年广慈-思南产医融合国际创新大赛创新创意赛道，全国三等奖【4/5】</li>
-          <li>2022 年第十届 CCF 大数据与计算智能大赛，数据湖流批一体性能优化，全国二等奖【1/2】</li>
-          <li>2022 年 Kaggle 美国运通违约预测赛题，铜牌【1/5】</li>
-        </ul>
-      </section>
+          <ul class="skills-list content-card">
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Python / 机器学习</h5>
+                <data value="90">90%</data>
+              </div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width:90%"></div></div>
+            </li>
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">SQL / Spark / Hive</h5>
+                <data value="85">85%</data>
+              </div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width:85%"></div></div>
+            </li>
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">强化学习 / 运筹优化</h5>
+                <data value="80">80%</data>
+              </div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width:80%"></div></div>
+            </li>
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">RAG / LangChain / 大模型应用</h5>
+                <data value="78">78%</data>
+              </div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width:78%"></div></div>
+            </li>
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">项目管理 / 科研申报</h5>
+                <data value="85">85%</data>
+              </div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width:85%"></div></div>
+            </li>
+          </ul>
+        </section>
+      </article>
 
-      <section class="block">
-        <h2>职业资格</h2>
-        <ul class="plain">
-          <li>计算机技术与软件专业技术资格：系统分析师（高级）</li>
-          <li>计算机技术与软件专业技术资格：数据库系统工程师（中级）</li>
-        </ul>
-      </section>
-    </section>
+      <article class="honors" data-page="honors">
+        <header>
+          <h2 class="h2 article-title">荣誉奖项</h2>
+        </header>
 
-    <div class="footer">© 2026 汤振东 · 更新于 2026.08</div>
+        <section class="awards-wrap">
+          <div class="awards-list" id="award-list"></div>
+          <div class="award-detail" id="award-detail" aria-live="polite"></div>
+        </section>
+      </article>
+
+      <article class="portfolio" data-page="portfolio">
+        <header>
+          <h2 class="h2 article-title">项目经历</h2>
+        </header>
+
+        <section class="projects">
+          <ul class="filter-list">
+            <li class="filter-item">
+              <button class="active" data-filter-btn>全部</button>
+            </li>
+            <li class="filter-item">
+              <button data-filter-btn>医疗 AI</button>
+            </li>
+            <li class="filter-item">
+              <button data-filter-btn>工业智能</button>
+            </li>
+            <li class="filter-item">
+              <button data-filter-btn>数据科学</button>
+            </li>
+          </ul>
+
+          <ul class="project-list" id="project-list"></ul>
+        </section>
+      </article>
+
+      <article class="contact" data-page="contact">
+        <header>
+          <h2 class="h2 article-title">联系我</h2>
+        </header>
+
+        <section class="contact-form">
+          <h3 class="h3 form-title">直接联系</h3>
+
+          <div class="contact-direct">
+            <div class="service-item">
+              <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
+              <h4 class="h4 service-item-title">邮箱</h4>
+              <div class="contact-emails">
+                <a href="mailto:tangzd.onee@gmail.com">tangzd.onee@gmail.com</a>
+                <a href="mailto:71215903017@stu.ecnu.edu.cn">71215903017@stu.ecnu.edu.cn</a>
+              </div>
+            </div>
+
+            <div class="service-item">
+              <div class="icon-box"><ion-icon name="logo-github"></ion-icon></div>
+              <h4 class="h4 service-item-title">GitHub</h4>
+              <p><a href="https://github.com/ZhendongTang" rel="me">github.com/ZhendongTang</a></p>
+            </div>
+
+            <div class="service-item">
+              <div class="icon-box"><ion-icon name="location-outline"></ion-icon></div>
+              <h4 class="h4 service-item-title">地点</h4>
+              <p>中国 · 上海</p>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="back-to-top" aria-label="回到顶部">
+    <ion-icon name="arrow-up-outline"></ion-icon>
+  </button>
+
+  <div class="project-modal" id="project-modal" aria-hidden="true">
+    <div class="project-modal-card" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+      <button class="project-modal-close" id="project-modal-close" aria-label="关闭项目详情">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+      <div id="project-modal-content"></div>
+    </div>
   </div>
 
-  <script src="app.js"></script>
+  <script src="./assets/js/projects.js"></script>
+  <script src="./assets/js/script.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
