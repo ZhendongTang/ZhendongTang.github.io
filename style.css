@@ -1,0 +1,78 @@
+:root{
+  --paper:#fbfaf7;
+  --ink:#211d17;
+  --muted:#6f675c;
+  --line:#e4dccf;
+  --accent:#9a3412;
+  --accent-soft:#f4e9e2;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  line-height:1.75;
+}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+.page{max-width:880px;margin:0 auto;padding:48px 24px 96px}
+header.site{padding-bottom:26px;border-bottom:1px solid var(--line)}
+.meta-top{font-size:13px;color:var(--muted);letter-spacing:.04em}
+h1{font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",Georgia,serif;font-size:42px;line-height:1.25;margin:10px 0 6px;font-weight:600}
+.subtitle{color:var(--muted);font-size:15px;margin:0}
+.contact-line{margin-top:14px;font-size:14px;color:var(--ink)}
+.contact-line span{display:inline-block;margin-right:16px;color:var(--muted)}
+.contact-line a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.contact-line a:hover{color:var(--accent);border-color:var(--accent)}
+nav.tabs{margin:26px 0 8px;display:flex;gap:22px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+nav.tabs button{background:none;border:0;border-bottom:2px solid transparent;padding:8px 0 10px;font:inherit;color:var(--muted);cursor:pointer}
+nav.tabs button.active{color:var(--ink);border-color:var(--accent)}
+.panel{display:none}
+.panel.active{display:block;animation:fade .18s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+section.block{margin:36px 0}
+h2{font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",Georgia,serif;font-size:22px;margin:0 0 18px;font-weight:600}
+h3{font-size:17px;margin:0}
+.prose{max-width:70ch}
+.lede{font-size:17px}
+.muted{color:var(--muted);font-size:14px}
+.rule{height:1px;background:var(--line);border:0;margin:18px 0}
+.timeline{list-style:none;margin:0;padding:0}
+.timeline li{position:relative;padding:0 0 26px 18px;border-left:1px solid var(--line)}
+.timeline li:last-child{padding-bottom:0;border-left-color:transparent}
+.timeline li::before{content:"";position:absolute;left:-4px;top:7px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.job-head{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.job-head .when{color:var(--muted);font-size:13px;white-space:nowrap}
+.job-org{color:var(--muted);font-size:14px;margin:2px 0 8px}
+ul.plain{margin:8px 0 0;padding-left:20px}
+ul.plain li{margin:5px 0}
+.edu{margin:20px 0}
+.edu .job-head{margin-bottom:2px}
+.skills p{margin:10px 0}
+.skills b{font-weight:600}
+.project-wrap{display:grid;grid-template-columns:190px minmax(0,1fr);gap:28px;align-items:start}
+.project-nav{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px;border-left:1px solid var(--line)}
+.project-nav button{display:block;width:100%;text-align:left;padding:8px 12px;background:none;border:0;border-left:2px solid transparent;margin-left:-1px;font:inherit;color:var(--muted);cursor:pointer}
+.project-nav button:hover{color:var(--ink)}
+.project-nav button.active{color:var(--accent);border-left-color:var(--accent);background:var(--accent-soft)}
+.project-detail h3{font-size:20px;margin-bottom:4px}
+.project-meta{color:var(--muted);font-size:14px;margin-bottom:14px}
+.project-detail h4{font-size:14px;margin:18px 0 6px;color:var(--accent)}
+.project-detail ul{margin:0;padding-left:20px}
+.project-detail li{margin:5px 0}
+.project-tags{margin-top:18px;color:var(--muted);font-size:13px}
+.honors{list-style:none;margin:0;padding:0;counter-reset:h}
+.honors li{counter-increment:h;display:grid;grid-template-columns:28px 1fr;gap:8px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.honors li:last-child{border-bottom:0}
+.honors li::before{content:counter(h,decimal-leading-zero);color:var(--accent);font-family:Georgia,serif}
+.footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media(max-width:700px){
+  h1{font-size:34px}
+  .page{padding:32px 18px 64px}
+  .project-wrap{grid-template-columns:1fr;gap:18px}
+  .project-nav{flex-direction:row;overflow-x:auto;border-left:0;border-bottom:1px solid var(--line)}
+  .project-nav button{border-left:0;border-bottom:2px solid transparent;margin:0 0 -1px;white-space:nowrap}
+  .project-nav button.active{border-bottom-color:var(--accent);background:none}
+}

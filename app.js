@@ -1,0 +1,214 @@
+const projects = [
+  {
+    id: "escc",
+    label: "食管癌生存预测",
+    title: "食管癌五年生存率动态预测",
+    period: "2025.08 – 2025.10",
+    role: "算法负责人",
+    org: "数据要素 × 联合实验室（500 万）",
+    summary: "整合 SEER 公开数据与院内食管癌患者数据，构建适配亚洲人群的五年生存率动态预测系统。",
+    background: "通用人群模型难以适配亚洲患者，且临床需要比较不同治疗组合的长期获益差异。",
+    approach: [
+      "联合新乡医学院第一附属医院肿瘤内科主任团队，整合 SEER 3047 例与院内 5000 余例患者数据。",
+      "提取人口学、肿瘤学（原发部位、分期）及手术 / 放化疗等核心特征。",
+      "采用 Cox 比例风险模型构建五年生存率动态预测系统，并对亚洲人群进行优化。"
+    ],
+    outcomes: [
+      "1 年 / 2 年 AUC 达 0.816 / 0.818，3 年 AUC 达 0.777。",
+      "可模拟 S+C+R+ 等多类治疗组合的生存获益差异。",
+      "正在进一步构造食管癌放疗药物不良反应预测模型。"
+    ],
+    metrics: [["1年 AUC", "0.816"], ["2年 AUC", "0.818"], ["3年 AUC", "0.777"]],
+    tags: ["生存分析", "Cox 模型", "风险预测", "SEER", "临床落地"]
+  },
+  {
+    id: "chd",
+    label: "冠心病辅助诊断",
+    title: "基于多标签分类的冠心病辅助诊断与医嘱推荐系统",
+    period: "2025.04 – 2025.08",
+    role: "算法负责人",
+    org: "科技部玉林项目",
+    summary: "面向 17 种冠心病细分诊断类型，构建长期 / 临时药物医嘱智能推荐系统。",
+    background: "冠心病细分类型多、临床医嘱差异大，需要可解释且符合指南的药物推荐能力。",
+    approach: [
+      "采集 4 万条住院事件、33 万条门诊事件数据，覆盖 300 余个核心字段。",
+      "特征筛选后形成 113 项核心特征，面向 17 种诊断类型建模。",
+      "采用 XGBoost 与特征增强的 Lgbm_FT 构建多分类 / 二分类预测模型。",
+      "结合临床指南与专家共识补充药物禁忌、剂量关联等规则约束。"
+    ],
+    outcomes: [
+      "临时医嘱场景 AUC 达 0.9707，F1 值达 0.6724。",
+      "已完成交付验收，正在收集观察性前瞻实验数据。"
+    ],
+    metrics: [["临时医嘱 AUC", "0.9707"], ["F1 值", "0.6724"], ["核心特征", "113 项"]],
+    tags: ["多标签分类", "XGBoost", "医嘱推荐", "规则约束", "医疗 AI"]
+  },
+  {
+    id: "sepsis-rl",
+    label: "脓毒症强化学习",
+    title: "基于强化学习的脓毒症液体复苏与血管活性药物联合优化系统",
+    period: "2024.06 – 2025.10",
+    role: "算法负责人",
+    org: "横向项目",
+    summary: "构建融合强化学习与专家知识的个性化多药联合治疗框架 ASSIT。",
+    background: "标准化治疗方案无法适配患者异质性，脓毒症死亡率居高不下。",
+    approach: [
+      "联合东南大学附属中大医院重症医学科主任团队，整合中、美（MIMIC-IV）3 个医疗中心共 7000 余例 ICU 患者数据。",
+      "通过 K-means 聚类识别脓毒症表型，提出融合 KL 散度约束的 DQN 改进架构。",
+      "创新设计 MultiBinary 动作空间，建模液体复苏与血管活性药物组合策略。",
+      "结合行为克隆预训练，确保临床安全性与可解释性。"
+    ],
+    outcomes: [
+      "系统经外部验证，与 AI 推荐方案高契合组患者死亡率显著降低。",
+      "已完成论文初稿。"
+    ],
+    metrics: [["ICU 病例", "7000+ 例"], ["医疗中心", "3 个"], ["数据库", "MIMIC-IV"]],
+    tags: ["强化学习", "DQN", "行为克隆", "MIMIC-IV", "ICU 决策"]
+  },
+  {
+    id: "triage",
+    label: "急诊预检分诊",
+    title: "基于医学大数据的急诊预检智能分诊系统",
+    period: "2024.08 – 2025.11",
+    role: "骨干成员",
+    org: "国家卫健委医疗人工智能临床应用研究课题",
+    summary: "构建决策树与深度神经网络集成模型，开发大模型驱动的预问诊模块。",
+    background: "急诊分诊依赖经验，需在有限信息下完成 ESI 分级与专科推荐。",
+    approach: [
+      "联合复旦大学附属华山医院重症医学科主任团队，整合近 20 万条急诊数据，覆盖 48 种临床信息。",
+      "构建决策树与深度神经网络集成模型，完成急诊严重程度分级（ESI）与专科推荐。",
+      "开发大模型驱动的预问诊模块，提升问诊信息结构化质量。"
+    ],
+    outcomes: [
+      "作为核心参与成员，辅助完成国家卫健委“医疗人工智能临床应用研究”课题立项及验收。"
+    ],
+    metrics: [["急诊数据", "近 20 万条"], ["临床信息", "48 种"], ["分级标准", "ESI"]],
+    tags: ["急诊分诊", "集成学习", "大模型", "预问诊", "医疗数据"]
+  },
+  {
+    id: "tcm",
+    label: "中药生产预警",
+    title: "中药制药生产全流程风险监测与预警系统",
+    period: "2024.07 – 2025.09",
+    role: "主持",
+    org: "科技部国家科技计划雄安专项（500 万）",
+    summary: "以 PCA + GANs 构建风险预警模型，并微调 Qwen 14B 增强可解释性。",
+    background: "中药生产过程质量风险隐蔽，需要实时监测、预警与决策建议。",
+    approach: [
+      "联合浙江大学药学院团队，采用主成分分析（PCA）与生成对抗网络（GANs）开发风险预警模型。",
+      "实现风险点实时监测与预警，准确率达 95.2% 以上。",
+      "构建领域经验问答语料集，微调 Qwen 14B 大模型，提供决策建议。"
+    ],
+    outcomes: [
+      "系统已部署大型药企，有效降低生产过程质量隐患。",
+      "被国家卓越工程师实践基地采购用作教学软件。",
+      "申请 3 项第一作者发明专利，均已公开，实质性审查中。"
+    ],
+    metrics: [["预警准确率", "95.2%+"], ["大模型", "Qwen 14B"], ["发明专利", "3 项一作"]],
+    tags: ["PCA", "GANs", "Qwen", "工业 AI", "风险预警"]
+  },
+  {
+    id: "attribution",
+    label: "渠道归因模型",
+    title: "基于马尔可夫链的渠道归因模型",
+    period: "2022.03 – 2022.10",
+    role: "算法开发人员",
+    org: "企业项目",
+    summary: "构建 120 万条触点转化路径库，优化马尔可夫链归因算法。",
+    background: "传统归因模型无法精准量化多触点贡献，短期渠道价值被低估。",
+    approach: [
+      "构建 120 万条触点的转化路径库。",
+      "创新提出聚焦短期直接触点、保留全链路的双路径切割算法。",
+      "通过状态转移概率矩阵与“移除效应”量化渠道贡献。"
+    ],
+    outcomes: [
+      "精准识别短期影响渠道，贡献提升 32%。",
+      "同时识别出中间辅助渠道价值。"
+    ],
+    metrics: [["转化路径", "120 万条"], ["贡献提升", "32%"]],
+    tags: ["归因分析", "马尔可夫链", "移除效应", "用户行为"]
+  },
+  {
+    id: "dfu",
+    label: "糖尿病足早筛",
+    title: "糖尿病足溃疡生物标志物挖掘与早期诊断模型",
+    period: "2020.07 – 2021.01",
+    role: "科研助理",
+    org: "科研项目",
+    summary: "基于公开基因表达数据，挖掘关键基因并构建早期诊断二分类集成模型。",
+    background: "糖尿病足溃疡缺乏早期诊断标志物，需要系统性的生物信息学挖掘。",
+    approach: [
+      "基于 GSE68183 与 GSE80178 数据集开展差异分析，获得 24301 个差异基因。",
+      "结合 LASSO 回归与随机森林，挖掘出 IGF1、S100A12、TYRP1 等 6 个关键基因。",
+      "利用 GO / KEGG 富集分析揭示疾病与皮肤分化、维生素 D 代谢及心肌病并发症的关联。",
+      "利用 NMF 降维聚类明确疾病发展分型。"
+    ],
+    outcomes: [
+      "构建糖尿病足溃疡早期诊断二分类集成模型。"
+    ],
+    metrics: [["差异基因", "24301"], ["关键基因", "6 个"], ["数据集", "GEO ×2"]],
+    tags: ["生物信息学", "LASSO", "随机森林", "NMF", "基因富集"]
+  }
+];
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, (ch) => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  })[ch]);
+}
+
+function switchTopTab(name) {
+  document.querySelectorAll("nav.tabs button").forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.tab === name);
+  });
+  document.querySelectorAll(".panel").forEach((panel) => {
+    panel.classList.toggle("active", panel.id === "panel-" + name);
+  });
+}
+
+function renderProjects() {
+  const nav = document.getElementById("project-nav");
+  const detail = document.getElementById("project-detail");
+  nav.innerHTML = "";
+  projects.forEach((p) => {
+    const li = document.createElement("li");
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.textContent = p.label;
+    btn.dataset.id = p.id;
+    btn.addEventListener("click", () => renderProject(p));
+    li.appendChild(btn);
+    nav.appendChild(li);
+  });
+  renderProject(projects[0]);
+}
+
+function renderProject(p) {
+  document.querySelectorAll("#project-nav button").forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.id === p.id);
+  });
+  const detail = document.getElementById("project-detail");
+  const metrics = (p.metrics || []).map(([v, k]) => `<span><b>${escapeHtml(v)}</b> · ${escapeHtml(k)}</span>`).join("，");
+  const approach = p.approach.map((x) => `<li>${escapeHtml(x)}</li>`).join("");
+  const outcomes = p.outcomes.map((x) => `<li>${escapeHtml(x)}</li>`).join("");
+  const tags = p.tags.map((x) => escapeHtml(x)).join(" · ");
+  detail.innerHTML = `
+    <h3>${escapeHtml(p.title)}</h3>
+    <div class="project-meta">${escapeHtml(p.period)} · ${escapeHtml(p.role)} · ${escapeHtml(p.org)}</div>
+    <p>${escapeHtml(p.summary)}</p>
+    ${metrics ? `<p class="muted">${metrics}</p>` : ""}
+    <h4>背景</h4>
+    <p>${escapeHtml(p.background)}</p>
+    <h4>做法</h4>
+    <ul>${approach}</ul>
+    <h4>结果</h4>
+    <ul>${outcomes}</ul>
+    <div class="project-tags">${tags}</div>`;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderProjects();
+  document.querySelectorAll("nav.tabs button").forEach((btn) => {
+    btn.addEventListener("click", () => switchTopTab(btn.dataset.tab));
+  });
+});
