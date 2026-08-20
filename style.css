@@ -68,10 +68,10 @@ ul.plain li{margin:5px 0}
 .project-detail ul{margin:0;padding-left:20px}
 .project-detail li{margin:5px 0}
 .project-tags{margin-top:18px;color:var(--muted);font-size:13px}
-.honors{list-style:none;margin:0;padding:0;counter-reset:h}
-.honors li{counter-increment:h;display:grid;grid-template-columns:28px 1fr;gap:8px;padding:10px 0;border-bottom:1px dashed var(--line)}
-.honors li:last-child{border-bottom:0}
-.honors li::before{content:counter(h,decimal-leading-zero);color:var(--accent);font-family:Georgia,serif}
+.honors{margin:4px 0 0}
+.honors li{padding:16px 0 16px 18px}
+
+.honors li::before{top:22px}
 .footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
 @media(max-width:700px){
   h1{font-size:34px}
