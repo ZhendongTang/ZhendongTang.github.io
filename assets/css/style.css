@@ -455,8 +455,8 @@ main {
 
 .visit-counter {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  flex-direction: row;
+  align-items: center;
   padding-left: 7px;
   color: var(--light-gray-70);
   font-size: var(--fs-8);

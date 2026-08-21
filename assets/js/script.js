@@ -121,7 +121,12 @@ const awards = [
     title: "CCF 大数据与计算智能大赛",
     award: "全国二等奖",
     rank: "1/2",
-    summary: "数据湖流批一体性能优化赛题，全国二等奖。",
+    project: {
+      url: "https://github.com/ZhendongTang/Data-Lake-Performance-Optimization",
+      title: "数据湖流批一体性能优化（Data Lake Performance Optimization）"
+    },
+    description: "CCF 大数据与计算智能大赛（BDCI）由中国计算机学会（CCF）主办、DataFountain 平台承办，围绕大数据与人工智能真实业务场景设置赛题，是国内具有影响力的大数据算法赛事之一。",
+    hosts: ["中国计算机学会（CCF）"],
     highlights: ["数据湖流批一体性能优化", "第 1 完成人", "全国二等奖"]
   },
   {
@@ -153,7 +158,8 @@ const awardLinkMap = {
     { label: "瑞金医院", url: "https://www.rjh.com.cn/" }
   ],
   "ccf-2022": [
-    { label: "DataFountain 竞赛平台", url: "https://www.datafountain.cn/" }
+    { label: "大赛官网", url: "https://www.datafountain.cn/special/BDCI2022" },
+    { label: "官方报道", url: "https://zhuanlan.zhihu.com/p/656188389" }
   ],
   "kaggle-2022": [
     { label: "Kaggle 竞赛页", url: "https://www.kaggle.com/competitions/amex-default-prediction" }
@@ -274,8 +280,8 @@ function renderAwardDetail(award, updateUrl = true) {
   const rankTags = (award.tags || []).map((item) => `<span class="award-badge award-rank">${escapeHtml(item)}</span>`).join("");
   const projectMarkup = award.project
     ? `
-    <a class="award-project" href="#project-${escapeHtml(award.project.id)}">
-      <ion-icon name="folder-open-outline"></ion-icon>
+    <a class="award-project" href="${award.project.url ? escapeHtml(award.project.url) : `#project-${escapeHtml(award.project.id)}`}"${award.project.url ? ' target="_blank" rel="noopener noreferrer"' : ""}>
+      <ion-icon name="${award.project.url ? "open-outline" : "folder-open-outline"}"></ion-icon>
       <span>关联项目：${escapeHtml(award.project.title)}</span>
     </a>`
     : `<p class="award-summary">${escapeHtml(award.summary)}</p>`;
