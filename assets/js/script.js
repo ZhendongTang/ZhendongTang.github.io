@@ -127,6 +127,10 @@ const awards = [
     },
     description: "CCF 大数据与计算智能大赛（BDCI）由中国计算机学会（CCF）主办、DataFountain 平台承办，围绕大数据与人工智能真实业务场景设置赛题，是国内具有影响力的大数据算法赛事之一。",
     hosts: ["中国计算机学会（CCF）"],
+    images: [
+      { src: "./assets/images/awards/ccf-bdci/244963dbcba0ebe3601448560fbe1a57.jpg", alt: "CCF 大数据与计算智能大赛现场照片 1" },
+      { src: "./assets/images/awards/ccf-bdci/e49bcd0667331253c69bc6c3c3fb7141.jpg", alt: "CCF 大数据与计算智能大赛现场照片 2" }
+    ],
     highlights: ["数据湖流批一体性能优化", "第 1 完成人", "全国二等奖"]
   },
   {
