@@ -453,6 +453,21 @@ main {
 
 .social-item .social-link:hover { color: var(--light-gray); }
 
+.visit-counter {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-left: 7px;
+  color: var(--light-gray-70);
+  font-size: var(--fs-8);
+  font-weight: var(--fw-300);
+}
+
+.visit-counter-item span {
+  color: var(--white-2);
+  font-weight: var(--fw-500);
+}
+
 
 
 
@@ -2156,7 +2171,9 @@ textarea:focus-visible {
   display: grid;
   grid-template-columns: 240px minmax(0, 1fr);
   gap: 24px;
-  align-items: start;
+  align-items: stretch;
+  height: min(76vh, 680px);
+  min-height: 380px;
 }
 
 .awards-list {
@@ -2164,6 +2181,9 @@ textarea:focus-visible {
   flex-direction: column;
   gap: 8px;
   border-left: 1px solid var(--jet);
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 6px;
 }
 
 .award-item {
@@ -2263,6 +2283,32 @@ textarea:focus-visible {
 
 .award-detail {
   min-width: 0;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 8px;
+  scroll-behavior: smooth;
+}
+
+.awards-list,
+.award-detail {
+  scrollbar-width: thin;
+  scrollbar-color: var(--jet) transparent;
+}
+
+.awards-list::-webkit-scrollbar,
+.award-detail::-webkit-scrollbar {
+  width: 8px;
+}
+
+.awards-list::-webkit-scrollbar-thumb,
+.award-detail::-webkit-scrollbar-thumb {
+  background: var(--jet);
+  border-radius: 999px;
+}
+
+.awards-list::-webkit-scrollbar-thumb:hover,
+.award-detail::-webkit-scrollbar-thumb:hover {
+  background: var(--light-gray-70);
 }
 
 .award-detail h3 {
@@ -2402,6 +2448,8 @@ textarea:focus-visible {
   .awards-wrap {
     grid-template-columns: 1fr;
     gap: 18px;
+    height: auto;
+    min-height: 0;
   }
 
   .award-photos {
@@ -2411,8 +2459,11 @@ textarea:focus-visible {
   .awards-list {
     flex-direction: row;
     overflow-x: auto;
+    overflow-y: visible;
     border-left: 0;
     border-bottom: 1px solid var(--jet);
+    min-height: auto;
+    padding-right: 0;
   }
 
   .award-item {
@@ -2430,6 +2481,9 @@ textarea:focus-visible {
 
   .award-detail {
     padding-left: 0;
+    overflow: visible;
+    max-height: none;
+    padding-right: 0;
   }
 }
 
