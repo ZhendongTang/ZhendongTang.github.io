@@ -404,6 +404,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
   window.reduceMotion = reduceMotionQuery.matches;
 
+  const themeToggle = document.getElementById("theme-toggle");
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const next = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", next);
+      try {
+        localStorage.setItem("site-theme", next);
+      } catch (error) { /* 本地预览时忽略 */ }
+    });
+  }
+
   renderProjects();
   renderAwards();
   applyFilter("全部");

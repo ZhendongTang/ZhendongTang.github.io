@@ -17,6 +17,11 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="汤振东 · 数字医疗算法与数据科学">
   <meta name="twitter:description" content="数字医疗、机器学习、强化学习与医疗数据工程。">
+  <script>
+    try {
+      document.documentElement.setAttribute("data-theme", localStorage.getItem("site-theme") || "dark");
+    } catch (error) { /* 本地预览时忽略 */ }
+  </script>
   <link rel="stylesheet" href="./assets/css/style.css">
   <script type="application/ld+json">
   {
@@ -139,6 +144,12 @@
           </li>
           <li class="navbar-item">
             <button class="navbar-link" data-nav-link data-target="contact">联系</button>
+          </li>
+          <li class="navbar-item">
+            <button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换亮色 / 深色主题">
+              <ion-icon class="icon-dark" name="sunny-outline"></ion-icon>
+              <ion-icon class="icon-light" name="moon-outline"></ion-icon>
+            </button>
           </li>
         </ul>
       </nav>

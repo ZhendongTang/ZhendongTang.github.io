@@ -111,6 +111,99 @@
 
 }
 
+:root[data-theme="light"] {
+  --bg-gradient-onyx: linear-gradient(
+    to bottom right,
+    hsl(210, 20%, 96%) 3%,
+    hsl(210, 18%, 91%) 97%
+  );
+  --bg-gradient-jet: linear-gradient(
+    to bottom right,
+    hsla(210, 18%, 95%, 0.9) 0%,
+    hsla(210, 18%, 91%, 0) 100%
+  ), hsl(210, 20%, 93%);
+  --bg-gradient-yellow-1: linear-gradient(
+    to bottom right,
+    hsl(185, 78%, 72%) 0%,
+    hsla(174, 90%, 56%, 0) 50%
+  );
+  --bg-gradient-yellow-2: linear-gradient(
+    135deg,
+    hsla(185, 78%, 72%, 0.35) 0%,
+    hsla(174, 90%, 56%, 0) 59.86%
+  ), hsl(210, 20%, 93%);
+  --border-gradient-onyx: linear-gradient(
+    to bottom right,
+    hsl(210, 12%, 78%) 0%,
+    hsla(210, 12%, 78%, 0) 50%
+  );
+  --text-gradient-yellow: linear-gradient(
+    to right,
+    hsl(185, 80%, 38%),
+    hsl(170, 70%, 36%)
+  );
+  --jet: hsl(210, 12%, 80%);
+  --onyx: hsl(210, 18%, 89%);
+  --eerie-black-1: hsl(210, 20%, 93%);
+  --eerie-black-2: hsl(210, 22%, 96%);
+  --smoky-black: hsl(210, 25%, 98%);
+  --white-1: hsl(210, 15%, 14%);
+  --white-2: hsl(210, 18%, 18%);
+  --orange-yellow-crayola: hsl(185, 75%, 38%);
+  --vegas-gold: hsl(170, 65%, 34%);
+  --light-gray: hsl(210, 12%, 32%);
+  --light-gray-70: hsla(210, 12%, 32%, 0.7);
+  --bittersweet-shimmer: hsl(4, 65%, 52%);
+  --shadow-1: -4px 8px 24px hsla(210, 10%, 40%, 0.18);
+  --shadow-2: 0 16px 30px hsla(210, 10%, 40%, 0.15);
+  --shadow-3: 0 16px 40px hsla(210, 10%, 40%, 0.15);
+  --shadow-4: 0 25px 50px hsla(210, 10%, 40%, 0.1);
+  --shadow-5: 0 24px 80px hsla(210, 10%, 40%, 0.15);
+}
+
+:root[data-theme="light"] .navbar {
+  background: hsla(210, 22%, 96%, 0.85);
+}
+
+:root[data-theme="light"] .select-item button:hover {
+  --eerie-black-2: hsl(210, 18%, 86%);
+}
+
+:root[data-theme="light"] body::-webkit-scrollbar-thumb {
+  border-color: var(--smoky-black);
+  background: hsla(210, 12%, 30%, 0.3);
+  box-shadow: inset 1px 1px 0 hsla(210, 12%, 30%, 0.2),
+              inset -1px -1px 0 hsla(210, 12%, 30%, 0.2);
+}
+
+:root[data-theme="light"] body::-webkit-scrollbar-thumb:hover {
+  background: hsla(210, 12%, 30%, 0.45);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--light-gray-70);
+  font-size: 18px;
+  padding: 4px 6px;
+  transition: var(--transition-1);
+}
+
+.theme-toggle:hover {
+  color: var(--orange-yellow-crayola);
+}
+
+:root:not([data-theme="light"]) .icon-light {
+  display: none;
+}
+
+:root[data-theme="light"] .icon-dark {
+  display: none;
+}
+
+
+
 
 
 
