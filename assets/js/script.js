@@ -399,7 +399,7 @@ function handleHashChange() {
     return;
   }
   const name = hash.slice(1);
-  if (["about", "resume", "portfolio", "honors", "contact"].includes(name)) {
+  if (["about", "resume", "portfolio", "honors", "achievements", "contact"].includes(name)) {
     switchPage(name, false, false);
   }
 }

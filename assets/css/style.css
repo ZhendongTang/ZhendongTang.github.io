@@ -554,6 +554,7 @@ main {
   color: var(--light-gray-70);
   font-size: var(--fs-8);
   font-weight: var(--fw-300);
+  white-space: nowrap;
 }
 
 .visit-counter-item span {
