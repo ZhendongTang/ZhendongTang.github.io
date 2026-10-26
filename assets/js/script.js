@@ -8,11 +8,6 @@ const categoryMap = {
   dfu: "数据科学"
 };
 
-const thumbColors = {
-  "医疗 AI": ["#0e7490", "#0b1e2b"],
-  "工业智能": ["#2563eb", "#101828"],
-  "数据科学": ["#7c3aed", "#131024"]
-};
 
 const awards = [
   {
@@ -44,7 +39,7 @@ const awards = [
     award: "全国三等奖 + 行业突破奖",
     badges: ["全国三等奖", "行业突破奖"],
     badgeStyle: "blue",
-    rank: "1/7",
+    rank: "3/7",
     project: { id: "tcm", title: "中药制药生产全流程风险监测与预警系统" },
     description: "西门子 Xcelerator 公开赛是西门子面向开发者与创新团队举办的数字化创新赛事，围绕工业数字化与智能制造征集解决方案，推动前沿技术在真实工业场景中的落地应用。",
     hosts: ["西门子（中国）有限公司", "国际智能制造联盟产业委员会"],
@@ -55,7 +50,7 @@ const awards = [
       { src: "./assets/images/awards/siemens/路演照片.jpg", alt: "西门子 Xcelerator 公开赛路演照片" },
       { src: "./assets/images/awards/siemens/西门子大合照.jpg", alt: "西门子 Xcelerator 公开赛大合照" }
     ],
-    highlights: ["西门子 Xcelerator 数字化创新赛道", "全国三等奖 + 行业突破奖", "作为第 1 完成人牵头方案落地与决赛路演答辩"]
+    highlights: ["西门子 Xcelerator 数字化创新赛道", "全国三等奖 + 行业突破奖", "作为第 3 完成人参与方案研发与落地"]
   },
   {
     id: "sh-graduate-2024",
@@ -181,41 +176,69 @@ function escapeHtml(value) {
 }
 
 function categoryFor(id) {
-  return categoryMap[id] || "数据科学";
+  return projects.find((project) => project.id === id)?.category || categoryMap[id] || "数据科学";
 }
 
-function projectThumb(project, category) {
-  const [start, end] = thumbColors[category] || thumbColors["数据科学"];
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400">
-    <defs>
-      <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="${start}"/>
-        <stop offset="1" stop-color="${end}"/>
-      </linearGradient>
-    </defs>
-    <rect width="640" height="400" fill="url(#g)"/>
-    <text x="48" y="212" font-size="44" fill="#ffffff" font-family="Microsoft YaHei, sans-serif" font-weight="600">${project.label}</text>
-    <text x="48" y="262" font-size="20" fill="#c7d2fe" font-family="Microsoft YaHei, sans-serif">${category}</text>
-  </svg>`;
-  return `data:image/svg+xml,${encodeURIComponent(svg)}`;
+function projectDetailsMarkup(project) {
+  const items = (values) => (values || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+  const tags = (project.tags || []).map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("");
+  return `
+    <p class="project-detail-period">实施时间：${escapeHtml(project.period)}</p>
+    <p class="project-detail-background">${escapeHtml(project.background)}</p>
+    <div class="project-detail-columns">
+      <div><h4>本人工作</h4><ul>${items(project.approach)}</ul></div>
+      <div><h4>交付与成果</h4><ul>${items(project.outcomes)}</ul></div>
+    </div>
+    <div class="project-tags">${tags}</div>`;
+}
+
+function projectsInGroup(group) {
+  return group.projectIds.map((id) => projects.find((project) => project.id === id));
+}
+
+function periodForGroup(members) {
+  const years = members.flatMap((project) => project.period.match(/\d{4}/g) || []).sort();
+  return years[0] === years.at(-1) ? years[0] : `${years[0]}—${years.at(-1)}`;
 }
 
 function renderProjects() {
-  const list = document.getElementById("project-list");
-  list.innerHTML = projects.map((project) => {
-    const category = categoryFor(project.id);
-    const thumb = projectThumb(project, category);
+  const render = (group) => {
+    const members = projectsInGroup(group);
+    const icon = { "医疗 AI": "medkit-outline", "工业智能": "construct-outline", "数据科学": "analytics-outline" }[group.category];
+    const work = group.work.map((text) => `<li>${escapeHtml(text)}</li>`).join("");
+    const records = members.map((project) => `
+      <li class="grouped-project-record">
+        <a href="#project-${escapeHtml(project.id)}">${escapeHtml(project.displayTitle || project.title)}<ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a>
+        <span class="grouped-project-role">${escapeHtml(project.role)}</span>
+        <span class="grouped-project-date">${project.acceptance ? `${escapeHtml(project.acceptance)} 验收` : escapeHtml(project.period)}</span>
+      </li>`).join("");
     return `
-      <li class="project-item active" data-filter-item data-category="${category}" data-id="${project.id}">
-        <a href="#project-${project.id}" data-project-link>
-          <figure class="project-img">
-            <img src="${thumb}" alt="${escapeHtml(project.label)}" loading="lazy">
-          </figure>
-          <h3 class="project-title">${escapeHtml(project.title)}</h3>
-          <p class="project-category">${category} · ${escapeHtml(project.period)}</p>
-        </a>
+      <li class="project-item active" data-filter-item data-category="${escapeHtml(group.category)}" data-count="${members.length}">
+        <details class="project-row">
+          <summary>
+            <span class="project-row-icon"><ion-icon name="${icon}" aria-hidden="true"></ion-icon></span>
+            <span class="project-row-main">
+              <span class="project-row-heading"><span class="project-row-title">${escapeHtml(group.title)}</span><span class="project-row-category">${escapeHtml(group.category)}</span></span>
+              <span class="project-row-summary">${escapeHtml(group.summary)}</span>
+              <span class="project-row-mobile-meta">${members.length} 个项目 · ${escapeHtml(group.role)}</span>
+            </span>
+            <span class="project-row-meta"><span>${members.length} 个项目</span><span>${escapeHtml(group.role)} · ${periodForGroup(members)}</span></span>
+            <ion-icon class="project-row-chevron" name="chevron-down-outline" aria-hidden="true"></ion-icon>
+          </summary>
+          <div class="project-row-detail">
+            <div class="project-group-work"><h4>主要工作</h4><ul>${work}</ul></div>
+            <h4 class="grouped-projects-title">相关项目</h4>
+            <ul class="grouped-project-records">${records}</ul>
+          </div>
+        </details>
       </li>`;
-  }).join("");
+  };
+  document.getElementById("project-list").innerHTML = projectGroups.map(render).join("");
+  document.querySelectorAll("[data-filter-btn]").forEach((button) => {
+    const category = button.dataset.filter;
+    const count = projectGroups.filter((group) => category === "全部" || group.category === category).length;
+    button.innerHTML = `<span>${escapeHtml(category)}</span><span class="filter-count">${count}</span>`;
+  });
 }
 
 function awardBadgeClass(awardText) {
@@ -313,26 +336,11 @@ function renderAwardDetail(award, updateUrl = true) {
 }
 
 function renderProjectModal(project) {
-  const content = document.getElementById("project-modal-content");
-  const metrics = (project.metrics || []).map(([value, label]) => {
-    return `<span class="metric"><b>${escapeHtml(value)}</b> ${escapeHtml(label)}</span>`;
-  }).join("");
-  const approach = (project.approach || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("");
-  const outcomes = (project.outcomes || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("");
-  const tags = (project.tags || []).map((item) => `<span class="tag">${escapeHtml(item)}</span>`).join("");
-
-  content.innerHTML = `
-    <h3 id="project-modal-title">${escapeHtml(project.title)}</h3>
-    <div class="project-meta">${escapeHtml(project.period)} · ${escapeHtml(project.role)} · ${escapeHtml(project.org)}</div>
+  document.getElementById("project-modal-content").innerHTML = `
+    <h3 id="project-modal-title">${escapeHtml(project.displayTitle || project.title)}</h3>
+    <div class="project-meta">${escapeHtml(project.role)}</div>
     <p>${escapeHtml(project.summary)}</p>
-    ${metrics ? `<div class="project-metrics">${metrics}</div>` : ""}
-    <h4>背景</h4>
-    <p>${escapeHtml(project.background)}</p>
-    <h4>做法</h4>
-    <ul>${approach}</ul>
-    <h4>结果</h4>
-    <ul>${outcomes}</ul>
-    <div class="project-tags">${tags}</div>`;
+    ${projectDetailsMarkup(project)}`;
 }
 
 function openProject(id, updateUrl = true) {
@@ -358,8 +366,16 @@ function applyFilter(selectedValue) {
     item.classList.toggle("active", active);
   });
   document.querySelectorAll("[data-filter-btn]").forEach((btn) => {
-    btn.classList.toggle("active", btn.textContent.trim() === selectedValue);
+    const active = btn.dataset.filter === selectedValue;
+    btn.classList.toggle("active", active);
+    btn.setAttribute("aria-pressed", String(active));
   });
+  document.querySelectorAll("[data-project-group]").forEach((group) => {
+    group.hidden = !group.querySelector("[data-filter-item].active");
+  });
+  const visible = [...document.querySelectorAll("[data-filter-item].active")];
+  const count = visible.reduce((total, item) => total + Number(item.dataset.count), 0);
+  document.getElementById("project-results").textContent = `${visible.length} 类方向 · ${count} 项项目与研究`;
 }
 
 function switchPage(name, updateUrl = true, scroll = true) {
@@ -424,15 +440,7 @@ document.addEventListener("DOMContentLoaded", () => {
   applyFilter("全部");
 
   document.querySelectorAll("[data-filter-btn]").forEach((btn) => {
-    btn.addEventListener("click", () => applyFilter(btn.textContent.trim()));
-  });
-
-  document.getElementById("project-list").addEventListener("click", (event) => {
-    const link = event.target.closest("[data-project-link]");
-    if (!link) return;
-    event.preventDefault();
-    const item = link.closest("[data-filter-item]");
-    if (item) openProject(item.dataset.id);
+    btn.addEventListener("click", () => applyFilter(btn.dataset.filter));
   });
 
   document.getElementById("award-list").addEventListener("click", (event) => {
