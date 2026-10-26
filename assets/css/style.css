@@ -2271,12 +2271,54 @@ textarea:focus-visible {
 }
 
 .awards-list {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  min-height: 0;
+  min-width: 0;
+}
+
+.award-group {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+}
+
+.award-group-heading {
+  padding: 4px 14px 14px;
+  text-align: left;
+}
+
+.award-group-heading h3 {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--white-2);
+  font-size: 18px;
+}
+
+.award-group-heading h3 span {
+  color: var(--orange-yellow-crayola);
+  font-size: var(--fs-8);
+  font-weight: var(--fw-400);
+}
+
+.award-group-heading p {
+  margin-top: 5px;
+  color: var(--light-gray-70);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.award-group-items {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  border-left: 1px solid var(--jet);
   min-height: 0;
   overflow-y: auto;
+  border-left: 1px solid var(--jet);
   padding-right: 6px;
 }
 
@@ -2383,24 +2425,24 @@ textarea:focus-visible {
   scroll-behavior: smooth;
 }
 
-.awards-list,
+.award-group-items,
 .award-detail {
   scrollbar-width: thin;
   scrollbar-color: var(--jet) transparent;
 }
 
-.awards-list::-webkit-scrollbar,
+.award-group-items::-webkit-scrollbar,
 .award-detail::-webkit-scrollbar {
   width: 8px;
 }
 
-.awards-list::-webkit-scrollbar-thumb,
+.award-group-items::-webkit-scrollbar-thumb,
 .award-detail::-webkit-scrollbar-thumb {
   background: var(--jet);
   border-radius: 999px;
 }
 
-.awards-list::-webkit-scrollbar-thumb:hover,
+.award-group-items::-webkit-scrollbar-thumb:hover,
 .award-detail::-webkit-scrollbar-thumb:hover {
   background: var(--light-gray-70);
 }
@@ -2551,16 +2593,34 @@ textarea:focus-visible {
   }
 
   .awards-list {
-    flex-direction: row;
-    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    overflow-x: visible;
     overflow-y: visible;
     border-left: 0;
-    border-bottom: 1px solid var(--jet);
     min-height: auto;
     padding-right: 0;
   }
 
+  .award-group {
+    min-width: 0;
+  }
+
+  .award-group-heading {
+    padding: 0 0 10px;
+  }
+
+  .award-group-items {
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-left: 0;
+    border-bottom: 1px solid var(--jet);
+    padding-bottom: 2px;
+  }
+
   .award-item {
+    flex: 0 0 210px;
     min-width: 210px;
     border-left: 0;
     border-bottom: 2px solid transparent;
