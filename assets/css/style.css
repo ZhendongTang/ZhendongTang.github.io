@@ -2265,14 +2265,12 @@ textarea:focus-visible {
   display: grid;
   grid-template-columns: 240px minmax(0, 1fr);
   gap: 24px;
-  align-items: stretch;
-  height: min(76vh, 680px);
-  min-height: 380px;
+  align-items: start;
 }
 
 .awards-list {
   display: grid;
-  grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: auto auto;
   gap: 24px;
   min-height: 0;
   min-width: 0;
@@ -2317,9 +2315,7 @@ textarea:focus-visible {
   flex-direction: column;
   gap: 8px;
   min-height: 0;
-  overflow-y: auto;
   border-left: 1px solid var(--jet);
-  padding-right: 6px;
 }
 
 .award-item {
@@ -2419,32 +2415,6 @@ textarea:focus-visible {
 
 .award-detail {
   min-width: 0;
-  min-height: 0;
-  overflow-y: auto;
-  padding-right: 8px;
-  scroll-behavior: smooth;
-}
-
-.award-group-items,
-.award-detail {
-  scrollbar-width: thin;
-  scrollbar-color: var(--jet) transparent;
-}
-
-.award-group-items::-webkit-scrollbar,
-.award-detail::-webkit-scrollbar {
-  width: 8px;
-}
-
-.award-group-items::-webkit-scrollbar-thumb,
-.award-detail::-webkit-scrollbar-thumb {
-  background: var(--jet);
-  border-radius: 999px;
-}
-
-.award-group-items::-webkit-scrollbar-thumb:hover,
-.award-detail::-webkit-scrollbar-thumb:hover {
-  background: var(--light-gray-70);
 }
 
 .award-detail h3 {
@@ -2595,11 +2565,6 @@ textarea:focus-visible {
   .awards-list {
     display: flex;
     flex-direction: column;
-    overflow-x: visible;
-    overflow-y: visible;
-    border-left: 0;
-    min-height: auto;
-    padding-right: 0;
   }
 
   .award-group {
@@ -2610,34 +2575,12 @@ textarea:focus-visible {
     padding: 0 0 10px;
   }
 
-  .award-group-items {
-    flex-direction: row;
-    overflow-x: auto;
-    overflow-y: hidden;
-    border-left: 0;
-    border-bottom: 1px solid var(--jet);
-    padding-bottom: 2px;
-  }
-
   .award-item {
-    flex: 0 0 210px;
-    min-width: 210px;
-    border-left: 0;
-    border-bottom: 2px solid transparent;
-    margin: 0 0 -1px;
-    border-radius: 0;
-  }
-
-  .award-item.active {
-    border-bottom-color: var(--orange-yellow-crayola);
-    background: none;
+    text-align: left;
   }
 
   .award-detail {
-    padding-left: 0;
-    overflow: visible;
-    max-height: none;
-    padding-right: 0;
+    margin-top: 6px;
   }
 }
 
