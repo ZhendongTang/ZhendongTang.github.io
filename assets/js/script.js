@@ -12,6 +12,7 @@ const categoryMap = {
 const awards = [
   {
     id: "dcic-2026",
+    responsibility: "lead",
     year: "2026",
     title: "数字中国创新大赛（DCIC）",
     award: "全国一等奖",
@@ -34,12 +35,13 @@ const awards = [
   },
   {
     id: "siemens-2025",
+    responsibility: "lead",
     year: "2025",
     title: "西门子 Xcelerator 公开赛",
     award: "全国三等奖 + 行业突破奖",
     badges: ["全国三等奖", "行业突破奖"],
     badgeStyle: "blue",
-    rank: "3/7",
+    rank: "1/7",
     project: { id: "tcm", title: "中药制药生产全流程风险监测与预警系统" },
     description: "西门子 Xcelerator 公开赛是西门子面向开发者与创新团队举办的数字化创新赛事，围绕工业数字化与智能制造征集解决方案，推动前沿技术在真实工业场景中的落地应用。",
     hosts: ["西门子（中国）有限公司", "国际智能制造联盟产业委员会"],
@@ -50,10 +52,12 @@ const awards = [
       { src: "./assets/images/awards/siemens/路演照片.jpg", alt: "西门子 Xcelerator 公开赛路演照片" },
       { src: "./assets/images/awards/siemens/西门子大合照.jpg", alt: "西门子 Xcelerator 公开赛大合照" }
     ],
-    highlights: ["西门子 Xcelerator 数字化创新赛道", "全国三等奖 + 行业突破奖", "作为第 3 完成人参与方案研发与落地"]
+    highlights: ["西门子 Xcelerator 数字化创新赛道", "全国三等奖 + 行业突破奖", "作为第 1 完成人负责方案研发与落地"]
   },
   {
     id: "sh-graduate-2024",
+    responsibility: "lead",
+    personalHonor: true,
     year: "2024",
     title: "上海市优秀毕业生",
     award: "省级荣誉",
@@ -67,6 +71,7 @@ const awards = [
   },
   {
     id: "nice-data-2024",
+    responsibility: "lead",
     year: "2024",
     title: "长三角国家技术创新中心数据要素应用大赛",
     award: "一等奖",
@@ -76,6 +81,7 @@ const awards = [
   },
   {
     id: "data-factors-guangdong-2024",
+    responsibility: "participant",
     year: "2024",
     title: "“数据要素 ×”大赛广东分赛医疗健康赛道",
     award: "优秀奖",
@@ -85,6 +91,7 @@ const awards = [
   },
   {
     id: "port-data-2024",
+    responsibility: "participant",
     year: "2024",
     title: "第三届数智港航数据创新应用大赛",
     award: "优秀奖",
@@ -94,6 +101,7 @@ const awards = [
   },
   {
     id: "bigdata-health-2023",
+    responsibility: "participant",
     year: "2023",
     title: "第二届中国大数据大赛卫生健康大数据创新应用赛道",
     award: "全国一等奖（工信部）",
@@ -103,6 +111,7 @@ const awards = [
   },
   {
     id: "guangci-2023",
+    responsibility: "participant",
     year: "2023",
     title: "广慈-思南产医融合国际创新大赛",
     award: "全国三等奖",
@@ -112,6 +121,7 @@ const awards = [
   },
   {
     id: "ccf-2022",
+    responsibility: "lead",
     year: "2022",
     title: "CCF 大数据与计算智能大赛",
     award: "全国二等奖",
@@ -130,6 +140,7 @@ const awards = [
   },
   {
     id: "kaggle-2022",
+    responsibility: "lead",
     year: "2022",
     title: "Kaggle 美国运通违约预测",
     award: "铜牌",
@@ -257,15 +268,32 @@ function awardBadgeMarkup(award) {
 
 function renderAwards() {
   const list = document.getElementById("award-list");
-  list.innerHTML = awards.map((award) => `
+  const groups = [
+    { id: "lead", title: "负责", description: "第一完成人 · 独立获奖 · 个人荣誉" },
+    { id: "participant", title: "参与", description: "团队协作获奖" }
+  ];
+  list.innerHTML = groups.map((group) => {
+    const items = awards.filter((award) => award.responsibility === group.id);
+    return `
+    <section class="award-group" aria-labelledby="award-group-${group.id}">
+      <header class="award-group-heading">
+        <h3 id="award-group-${group.id}">${group.title}<span>${items.length} 项</span></h3>
+        <p>${group.description}</p>
+      </header>
+      <div class="award-group-items">
+        ${items.map((award) => `
     <button type="button" class="award-item" data-award-id="${award.id}">
       <span class="award-year">${escapeHtml(award.year)}</span>
       <span class="award-title">${escapeHtml(award.title)}</span>
       <span class="award-meta">
         ${awardBadgeMarkup(award)}
+        ${award.personalHonor ? '<span class="award-badge award-rank">个人荣誉</span>' : ""}
         ${award.rank ? `<span class="award-badge award-rank">位次 ${escapeHtml(award.rank)}</span>` : ""}
       </span>
-    </button>`).join("");
+    </button>`).join("")}
+      </div>
+    </section>`;
+  }).join("");
   renderAwardDetail(awards[0], false);
 }
 
@@ -320,6 +348,7 @@ function renderAwardDetail(award, updateUrl = true) {
     <h3>${escapeHtml(award.title)}</h3>
     <div class="award-detail-meta">
       <span>${escapeHtml(award.year)}</span>
+      <span class="award-badge award-rank">${award.personalHonor ? "个人荣誉" : award.responsibility === "lead" ? "负责" : "参与"}</span>
       ${awardBadgeMarkup(award)}
       ${award.rank ? `<span class="award-badge award-rank">位次 ${escapeHtml(award.rank)}</span>` : ""}
       ${rankTags}
@@ -483,4 +512,3 @@ document.addEventListener("DOMContentLoaded", () => {
     switchPage("about", false, false);
   }
 });
-
